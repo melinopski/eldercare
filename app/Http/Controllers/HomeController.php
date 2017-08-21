@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Admin;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-      $patients = User::search($request->name)->orderBy('id','ASC')->paginate(5);
+      $patients = Admin::search($request->name)->orderBy('id','ASC')->paginate(5);
       return view('patient.index')->with('patients',$patients);
     }
 }
