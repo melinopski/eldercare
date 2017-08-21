@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Admin;
 
 class AdminController extends Controller
 {
@@ -21,8 +22,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin');
+      $doctors = Admin::search($request->name)->orderBy('id','ASC')->paginate(5);
+      return view('doctor.index')->with('doctors',$doctors);
     }
 }

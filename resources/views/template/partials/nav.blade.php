@@ -9,7 +9,7 @@
     		</div>
       @if(Auth::user())
       <ul class="nav navbar-nav navbar-right">
-      			<li><a href="{{ route('auth.logout')}}" style=""><span class="fa fa-sign-out fa-2x icono-blanco "></span>
+      			<li><a href="{{ route('user.logout')}}" style=""><span class="fa fa-sign-out fa-2x icono-blanco "></span>
       			{{ Auth::user()->name}}</a></li>
       			<li><a href="#"><span ></span> </a></li>
     	</ul>

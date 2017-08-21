@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::get('users/logout','Auth\LoginController@userlogout')->name('user.logout');
 
 Route::prefix('admin')->group( function(){
@@ -31,4 +31,50 @@ Route::prefix('admin')->group( function(){
   Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
   Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
+});
+
+Route::group(['prefix'=>'patients'],  function(){
+  //Route::get('patient','PatientController@index')->name('patient.index');
+  Route::post('patient','PatientController@store')->name('patient.store');
+  Route::get('patient/create','PatientController@create')->name('patient.create');
+  Route::get('patient/{id}/destroy','PatientController@destroy')->name('patient.destroy');
+  Route::put('patient/{patient}','PatientController@update')->name('patient.update');
+  Route::get('patient/{patient}/edit','PatientController@edit')->name('patient.edit');
+  Route::get('patient/show/{id}', 'PatientController@show')->name('patient.show');
+  Route::get('doctor','DoctorController@index')->name('doctor.index');
+
+});
+
+Route::group(['prefix'=>'doctors', 'middleware' => 'auth' ],  function(){
+
+	//Route::resource('doctor','DoctorController');
+  //Route::get('doctor','DoctorController@index')->name('doctor.index');
+  Route::post('doctor','DoctorController@store')->name('doctor.store');
+  Route::get('doctor/create','DoctorController@create')->name('doctor.create');
+  Route::get('doctor/{id}/destroy','DoctorController@destroy')->name('doctor.destroy');
+  Route::put('doctor/{doctor}','DoctorController@update')->name('doctor.update');
+  Route::get('doctor/{doctor}/edit','DoctorController@edit')->name('doctor.edit');
+  Route::get('doctor/show/{id}', 'DoctorController@show')->name('doctor.show');
+  Route::get('patient','PatientController@index')->name('patient.index');
+
+});
+
+Route::group(['prefix'=>'notifications'],  function(){
+	//Route::resource('notification','NotificationController');
+  Route::get('notification','NotificationController@index')->name('notification.index');
+  Route::post('notification','NotificationController@store')->name('notification.store');
+  Route::get('notification/create','NotificationController@create')->name('notification.create');
+  Route::get('notification/{id}/destroy','NotificationController@destroy')->name('notification.destroy');
+  Route::put('notification/{notification}','NotificationController@update')->name('notification.update');
+  Route::get('notification/{notification}/edit','NotificationController@edit')->name('notification.edit');
+  Route::get('notification/show/{id}', 'NotificationController@show')->name('notification.show');
+
+});
+
+Route::group(['prefix'=>'nodes'],  function(){
+	Route::resource('node','NodeController');
+	Route::get('node/{id}/destroy' ,[
+		'uses' => 'NodeController@destroy',
+		'as' => 'node.destroy'
+	]);
 });
