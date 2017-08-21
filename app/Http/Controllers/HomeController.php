@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-      $patients = Admin::search($request->name)->orderBy('id','ASC')->paginate(5);
-      return view('patient.index')->with('patients',$patients);
+      $doctors = Admin::search($request->name)->orderBy('id','ASC')->paginate(5);
+      return view('doctor.index')->with('doctors',$doctors);
     }
 }

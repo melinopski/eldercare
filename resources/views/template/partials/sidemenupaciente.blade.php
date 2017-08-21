@@ -1,4 +1,4 @@
-@if(Auth::user())
+@if(Auth::guard('web')->check())
 <div class="profile-sidebar">
 					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">

@@ -24,7 +24,7 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-      $doctors = User::search($request->name)->orderBy('id','ASC')->paginate(5);
-      return view('doctor.index')->with('doctors',$doctors);
+      $patients = User::search($request->name)->orderBy('id','ASC')->paginate(5);
+      return view('patient.index')->with('patients',$patients);
     }
 }

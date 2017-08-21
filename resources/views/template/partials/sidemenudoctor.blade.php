@@ -1,4 +1,4 @@
-@if(Auth::check())
+@if(Auth::guard('admin')->check())
 <div class="profile-sidebar">
 					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">
@@ -19,7 +19,7 @@
 							    	<span class="fa fa-user fa-2x icono-blanco"></span>&nbsp;@yield('Datos personales','Default')
 							    </a>
 						    </li -->
-								
+
 						    <li class="active">
 							    <a href="{{ route('patient.index') }}">
 							    	<span class="fa fa-list fa-2x icono-blanco"></span>&nbsp;@yield('Lista','Default')
