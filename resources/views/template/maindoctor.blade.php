@@ -20,7 +20,7 @@
 
 <body >
 
-		@include('template.partials.nav')
+		@include('template.partials.nav-admin')
 
 	<div class="container-fluid ">
   		<div class="row ">

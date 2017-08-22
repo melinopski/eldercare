@@ -63,10 +63,10 @@ class PatientController extends Controller
       $patient->save();
 
       /****LLENANDO TABLA PIVOTE****/
-      $iddoctor   = 8;//Auth::id()
+      /*$iddoctor   = 8;//Auth::id()
       $idpaciente = $patient->id;
-      DB::insert('insert into doctor_patient(doctor_id, patient_id) values (?,?)',
-      [$iddoctor,$idpaciente]);
+      DB::insert('insert into admin_user(admin_id, user_id) values (?,?)',
+      [$iddoctor,$idpaciente]);*/
       //$doctor_patient = DB::select( DB::raw("SELECT * FROM doctor_patient") );
 
       flash("Se ha registrado " . $patient->name)->success()->important();

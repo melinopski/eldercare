@@ -2,7 +2,7 @@
 <div class="profile-sidebar">
 					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">
-					        <img src="{{ asset('images/001-pokeballs.png') }}" class="img-responsive" alt="">
+					        <img src="{{ Auth::user()->photo }}" class="img-responsive" >
 				    </div>
 					<!-- END SIDEBAR USERPIC -->
 					<!-- SIDEBAR USER TITLE -->

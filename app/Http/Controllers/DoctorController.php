@@ -58,7 +58,7 @@ class DoctorController extends Controller
 
   }
 
-  $doctor = new Doctor($request->all());
+  $doctor = new Admin($request->all());
   $doctor->password = bcrypt($request->password);
   $name2 = 'images/doctor/'. $name;
   $doctor->photo = $name2;

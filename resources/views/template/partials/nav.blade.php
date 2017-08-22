@@ -11,14 +11,6 @@
       <ul class="nav navbar-nav navbar-right">
       			<li><a href="{{ route('user.logout')}}" style=""><span class="fa fa-sign-out fa-2x icono-blanco "></span>
       			{{ Auth::user()->name}}</a></li>
-      			<li><a href="#"><span ></span> </a></li>
-    	</ul>
-      @endif
-      @if(Auth::guard('admin')->check())
-      <ul class="nav navbar-nav navbar-right">
-      			<li><a href="{{ route('user.logout')}}" style=""><span class="fa fa-sign-out fa-2x icono-blanco "></span>
-      			{{ Auth::user()->name}}</a></li>
-      			<li><a href="#"><span ></span> </a></li>
     	</ul>
       @endif
 
